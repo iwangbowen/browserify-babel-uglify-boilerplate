@@ -1,0 +1,46 @@
+{
+  "name": "browserify-babel-uglify-boilerplate",
+  "version": "1.0.0",
+  "description": "Do all of these using only npm scripts",
+  "main": "index.js",
+  "scripts": {
+    "watch": "watchify index.js -o dist/index.js -v -t [ babelify --presets [ @babel/preset-env ] ]",
+    "build": "browserify index.js  -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -o dist/index.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iwangbowen/browserify-babel-uglify-boilerplate.git"
+  },
+  "author": "Bowen Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iwangbowen/browserify-babel-uglify-boilerplate/issues"
+  },
+  "homepage": "https://github.com/iwangbowen/browserify-babel-uglify-boilerplate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "uglify-js": "^3.4.9",
+    "watchify": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "lodash": "^4.17.11"
+  }
+}
